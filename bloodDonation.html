@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blood Donation</title>
+    <link rel="stylesheet" href="./bloodDonation.css">
+</head>
+<body>
+    <h1 style="font-size: 50px;">BLOOD DONATION CAMP</h1>
+    <h2>REGISTRATION FORM</h2>
+    <div id="main">
+        <form id="blood" name="blood" action="" onsubmit="return validateForm()" method="post"> <!-- onsubmit="return validateForm()" method="post" -->
+            <div class="d1">
+                <p>Full Name</p>
+                <input type="text" name="fname" required>
+            </div>
+            <div class="d1">
+                <p>Age</p>
+                <input type="number" name="age" required>
+            </div>
+            <div class="d1">
+                <p>Email</p>
+                <input type="email" name="mail" required>
+            </div>
+            <div class="d1">
+                <p>Phone Number</p>
+                <input type="number" name="num" required>
+            </div>
+            <div class="d1">
+                <p>Gender</p>
+                <div id="d2">
+                    <input type="radio" id="female" value="female" name="gender">
+                    <label for="female">Female</label>
+                    <input type="radio" id="male" value="male" name="gender">
+                    <label for="male">Male</label>
+                    <input type="radio" id="others" value="others" name="gender">
+                    <label for="others">Others</label>
+                </div>
+            </div>
+            <div class="d1">
+                <p>Blood Group</p>
+                <select name="group" id="group" name="gender" required>
+                    <option>select</option>
+                    <option value="A+">A+</option>
+                    <option value="A-">A-</option>
+                    <option value="B+">B+</option>
+                    <option value="B-">B-</option>
+                    <option value="AB+">AB+</option>
+                    <option value="AB-">AB-</option>
+                    <option value="O+">O+</option>
+                    <option value="O-">O-</option>
+                </select>
+            </div>
+            <div class="d2">
+                <button id="sub" onClick="showAlert()" type="submit">Submit</button>
+                <button id="res" type="reset">Reset</button>
+            </div>
+        </form>
+    </div>
+    <script>
+        const form=document.getElementById("blood");
+
+        form.addEventListener('submit',function(event)
+        {
+            event.preventDefault();
+            alert("Registered Successfully...")
+        })
+    </script>
+</body>
+</html>
