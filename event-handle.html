@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>JavaScript Event Handling</title>
+	<style>
+		/* Add some basic styling */
+		button 
+        {
+			margin: 30px;
+            padding: 30px;
+		}
+        input
+        {
+            padding: 10px;
+            margin: 20px;
+        }
+        body
+        {
+            background-color: rgba(220, 251, 252);
+        }
+	</style>
+</head>
+<body>
+
+    <center>
+        <div style="background-color: rgba(220, 251, 252, 0.555); width: 50%; height: 50%; margin-top: 5%; border-radius: 10px;">
+            <!-- HTML elements -->
+            <button id="myButton">Click me!</button>
+            <button id="myDoubleClickButton">Double-click me!</button>
+            <input type="text" id="myInput" placeholder="Type something...">
+            <a id="myLink" href="#">Click this link</a><br>
+            <span style="padding: 20px;margin: 30px; background-color: black; font-size: 20px;" id="myDiv"><b>&#8594;</b></span>
+    
+            <button id="changeBackground" style="background-color: black; color: aliceblue;border-radius: 5px;">Change Background</button>
+        </div>       
+    </center>
+    
+
+	<!-- Script tag with JavaScript code -->
+	<script>
+		// Get HTML elements
+		const button = document.getElementById('myButton');
+		const doubleClickButton = document.getElementById('myDoubleClickButton');
+		const input = document.getElementById('myInput');
+		const link = document.getElementById('myLink');
+		const div = document.getElementById('myDiv');
+
+		// Event handler functions
+		function handleClick() {
+			console.log('Button clicked!');
+			alert('Button clicked!');
+		}
+
+		function handleDoubleClick() {
+			console.log('Button double-clicked!');
+			alert('Button double-clicked!');
+		}
+
+		function handleInput() {
+			console.log('Input changed:', input.value);
+		}
+
+		function handleLinkClick(event) {
+			event.preventDefault(); // Prevent default link action
+			console.log('Link clicked!');
+			alert('Link clicked!');
+		}
+
+		function handleMouseOver() {
+			console.log('Mouse over div!');
+			div.style.background = 'crimson';
+		}
+
+		function handleMouseOut() {
+			console.log('Mouse out div!');
+			div.style.background = 'grey';
+		}
+        
+        // Get the button element
+        const changeBackgroundButton = document.getElementById('changeBackground');
+
+        // Function to generate a random background color
+        function getRandomColor() {
+            return `#${Math.floor(Math.random() * 16777215).toString(16)}`;
+        }
+
+        // Add event listener to button
+        changeBackgroundButton.addEventListener('click', function() {
+            document.body.style.background = getRandomColor();
+        });
+
+		// Add event listeners
+		button.addEventListener('click', handleClick);
+		doubleClickButton.addEventListener('dblclick', handleDoubleClick);
+		input.addEventListener('input', handleInput);
+		link.addEventListener('click', handleLinkClick);
+		div.addEventListener('mouseover', handleMouseOver);
+		div.addEventListener('mouseout', handleMouseOut);
+	</script>
+
+</body>
+</html>
