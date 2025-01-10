@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Mouse Events Demo</title>
+</head>
+<body>
+    <h1 style="text-align: center; color: rgb(41, 41, 46);">Click Anywhere To Change Color</h1>
+	<script>
+		// Get the body element
+		const body = document.body;
+		
+		// Mouse Click Event
+		document.addEventListener('click', function() {
+			const color = `#${Math.floor(Math.random() * 16777215).toString(16)}`;
+			body.style.background = color;
+		});
+		
+		// Mouse Double Click Event
+		document.addEventListener('dblclick', function() {
+			body.style.background = 'yellow';
+		});
+		
+		// Mouse Right Click Event
+		document.addEventListener('contextmenu', function(event) {
+			event.preventDefault();
+			body.style.background = 'red';
+		});
+	</script>
+</body>
+</html>

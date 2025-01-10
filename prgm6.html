@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Student Registration Form</title>
+<style>
+    body {
+    font-family: Arial, sans-serif;
+    background-color: #8db0bd;
+    padding: 20px;
+    color: #192040;
+    }
+    .container {
+    width: 50%;
+    margin: 0 auto;
+    background-color: #5f91a2;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    }
+    h1 {
+    text-align: center;
+    color: #010c42;
+    }
+    label {
+    font-size: 1rem;
+    margin-top: 10px;
+    display: block;
+    }
+    input,select
+    {
+        width: 95%;
+        padding: 10px;
+        margin: 5px;
+        border-radius: 5px;
+    }
+    button {
+        width: 49%;
+        padding: 10px;
+        color: white;
+        border: none;
+        border-radius: 4px;
+        font-size: 1rem;
+        cursor: pointer;
+        margin-top: 30px;
+    }
+    .rad
+    {
+        display: flex;
+        justify-content: space-around;
+        margin-bottom: 10px;
+    }
+    #success-message {
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background-color: #8BC34A;
+        color: #fff;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    }
+
+    #success-message.hide {
+        display: none;
+    }
+
+    .message {
+        font-size: 18px;
+        font-weight: bold;
+    }
+
+    .close-btn {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        cursor: pointer;
+    }
+
+</style>
+</head>
+<body>
+<div class="container">
+<h1>Student Registration Form</h1>
+        <form id="registration-form" action="javascript:void(0);">
+        <label for="full-name">Full Name</label>
+        <input type="text" id="full-name" name="full-name" required placeholder="Full name">
+        <label for="email">Email Address</label>
+        <input type="email" id="email" name="email" required placeholder="Email address">
+        <label for="phone">Phone Number</label>
+        <input type="tel" id="phone" name="phone" required placeholder="Phone number">
+        <label for="dob">Date of Birth</label>
+        <input type="date" id="dob" name="dob" required>
+        <div class="form-group" style="display: flex;justify-content: space-between;margin-right: 40%;margin-top: 10px;">
+            <label for="gender">Gender:</label>
+                <div class="rad">
+                    <input type="radio" id="male" name="gender" value="male" required>
+                    <label for="male">Male</label>
+                </div>
+                <div class="rad">
+                    <input type="radio" id="female" name="gender" value="female"required>
+                    <label for="female">Female</label>
+                </div>
+                <div class="rad">
+                    <input type="radio" id="other" name="gender" value="other"required>
+                    <label for="other">Other</label>
+                </div>
+        </div>
+        <label for="course">Course of Study</label>
+        <input type="text" id="course" name="course" required placeholder="Course">
+        <button style="background-color: #155724;" id="btn" type="submit">Register</button>
+        <button style="background-color: rgb(171, 68, 68);" type="reset">Clear</button>
+        <div id="success-message" class="hide">
+            <span class="message">Registration Successful!</span>
+            <span class="close-btn">&times;</span>
+        </div>
+    </form>
+    </div>
+</body>
+<script>
+    document.getElementById('btn').addEventListener('click', function() {
+    	document.getElementById('success-message').classList.remove('hide');
+        setTimeout(function() {
+            document.getElementById('success-message').classList.add('hide');
+        }, 3000);
+
+    });
+
+    document.querySelector('.close-btn').addEventListener('click', function() {
+        document.getElementById('success-message').classList.add('hide');
+    });
+
+    document.getElementById('registration-form').addEventListener('submit', function(event) {
+        document.getElementById('registration-form').reset(); // reset the form
+    });
+
+</script>
+</html>    

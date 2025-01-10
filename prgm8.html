@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Event Handling in JavaScript</title>
+	<style>
+		body {
+			font-family: Arial, sans-serif;
+		}
+		div
+        {
+            margin: 20px;
+        }
+		#myButton {
+			background-color: #4CAF50;
+			color: #fff;
+			padding: 10px 20px;
+			border: none;
+			border-radius: 5px;
+			cursor: pointer;
+            margin-top: 50px;
+		}
+		
+		#myButton:hover {
+			background-color: #3e8e41;
+		}
+		
+		#myDiv {
+			width: 200px;
+			height: 100px;
+			background-color: #f0f0f0;
+			padding: 20px;
+			border: 1px solid #ddd;
+		}
+        .container
+        {
+            width: 60%;
+            margin: auto; 
+            padding: 50px; 
+            background-color: rgb(189, 237, 221);
+            border-radius: 5px;
+        }
+        input
+        {
+            padding: 10px;
+        }
+	</style>
+</head>
+<body>
+    <br><br>
+	<div class="container" >
+        <h1 style="text-align: center;">Event Handling in JavaScript</h1>
+        <div style="display: flex; justify-content: space-evenly;">
+            <div>
+                <!-- Click Event -->
+                <button id="myButton" >Click Me!</button>
+            </div>
+            <div>
+                <!-- Mouse Over Event -->
+                <div id="myDiv">Mouse over me!</div>
+            </div>
+        </div>
+        <div style="display: flex; justify-content: space-evenly;">
+            <div>
+                <!-- Key Press Event -->
+                <input id="myInput" type="text" placeholder="Type something...">
+            </div>
+            <div>
+                <!-- Form Submission Event -->
+                <form id="myForm">
+                    <label for="name">Name:</label>
+                    <input type="text" id="name" name="name"><br><br>
+                    <input type="submit" value="Submit">
+                </form>
+            </div>
+        </div>
+    </div>	
+	<script>
+		// Click Event
+		document.getElementById('myButton').addEventListener('click', function() {
+			alert('Button clicked!');
+		});
+		
+		// Mouse Over Event
+		document.getElementById('myDiv').addEventListener('mouseover', function() {
+			this.style.background = 'yellow';
+		});
+		
+		document.getElementById('myDiv').addEventListener('mouseout', function() {
+			this.style.background = '#f0f0f0';
+		});
+		
+		// Key Press Event
+		document.getElementById('myInput').addEventListener('keypress', function(event) {
+			if (event.key === 'Enter') {
+				alert('You inserted data and pressed Enter!');
+			}
+		});
+		
+		// Form Submission Event
+		document.getElementById('myForm').addEventListener('submit', function(event) {
+			event.preventDefault();
+			alert('Name submitted!');
+		});
+	</script>
+</body>
+</html>
