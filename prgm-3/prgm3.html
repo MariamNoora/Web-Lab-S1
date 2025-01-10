@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Frames Example</title>
+	<style>
+		frameset {
+			border: 1px solid #ccc;
+			border-radius: 10px;
+			box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+		}
+		frame {
+			border: 1px solid #ccc;
+			border-radius: 10px;
+			box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+		}
+	</style>
+</head>
+
+<frameset rows="100, *, 100">
+	<frame src="prgm3-1.html" name="nav_frame" frameborder="1" scrolling="no">
+	<frameset cols="40%, 60%">
+		<frame src="prgm3-2.html" name="left_frame" frameborder="1" scrolling="yes">
+		<frame src="prgm3-3.html" name="right_frame" frameborder="1" scrolling="yes">
+    </frameset>
+	<frame src="prgm3-4.html" name="footer_frame" frameborder="1" scrolling="yes">
+</frameset>
+
+</html>
