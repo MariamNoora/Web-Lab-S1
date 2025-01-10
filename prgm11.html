@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Sum of Digits</title>
+	<style>
+		body {
+			font-family: Arial, sans-serif;
+			background-color: #f0f0f0;
+		}
+		
+		.container {
+			width: 80%;
+			margin: 40px auto;
+			background-color: #fff;
+			padding: 20px;
+			border: 1px solid #ddd;
+			box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+		}
+		
+		.result {
+			font-size: 24px;
+			font-weight: bold;
+			color: #008000;
+			background-color: #f9f9f9;
+			padding: 10px;
+			border: 1px solid #ccc;
+		}
+		
+		button {
+			background-color: #4CAF50;
+			color: #fff;
+			padding: 10px 20px;
+			border: none;
+			border-radius: 5px;
+			cursor: pointer;
+		}
+		
+		button:hover {
+			background-color: #3e8e41;
+		}
+	</style>
+</head>
+<body>
+	<div class="container">
+		<h1>Sum of Digits Calculator</h1>
+		<p>Enter a number to calculate the sum of its digits:</p>
+		<form action="" method="post">
+			<input type="text" name="number" placeholder="Enter a number">
+			<button type="submit" name="submit">Calculate</button>
+		</form>
+		<div class="result">
+			<?php 
+				if (isset($_POST['submit'])) {
+					$number = $_POST['number'];
+					$sum = 0;
+					while ($number != 0) {
+						$digit = $number % 10;
+						$sum += $digit;
+						$number = (int)($number / 10);
+					}
+					echo "The sum of the digits is: $sum";
+				}
+			?>
+		</div>
+	</div>
+</body>
+</html>
